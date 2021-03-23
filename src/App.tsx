@@ -80,8 +80,8 @@ class App extends React.Component<WordFrequencyAnalyzer | Props['classes'], Stat
   calculateHighestFrequency: WordFrequencyAnalyzer['calculateHighestFrequency'] = (
     text: string
   ): any => {
-    if (this.state.text) {
-      const array: any = [...this.state.text.split(' ')];
+    if (text) {
+      const array: any = [...text.split(' ')];
 
       // Find most frequent array element(s) ({wich}) with their occurance ({mostFreq})
       var obj: any = {},
@@ -146,7 +146,7 @@ class App extends React.Component<WordFrequencyAnalyzer | Props['classes'], Stat
     if (text) {
       // Return object where key = string and value = occurance
       return array
-        .map(word => word.toLowerCase().replace(/[.,#!$%^&*;:{}=\-_`~()]/g, ''))
+        .map(word => word.toLowerCase().replace(/[.,#!$%^&*;":{}=\-_`~()]/g, ''))
         .reduce((a: any, b: any): any => {
           if (typeof a[b] === 'undefined') {
             a[b] = 1;
