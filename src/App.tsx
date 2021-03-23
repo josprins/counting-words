@@ -107,7 +107,7 @@ class App extends React.Component<WordFrequencyAnalyzer | Props['classes'], Stat
       return this.setState({
         output: `The most used ${
           which.length > 1 ? 'words are' : 'word is'
-        }: "${which.toString().replace(/,/g, ' & ')}" and ${
+        }: "${which.toString().replace(/,/g, '" & "')}" and ${
           which.length > 1 ? 'they appear' : 'it appears'
         } ${mostFreq} ${mostFreq > 1 ? 'times' : 'time'}`,
       });
