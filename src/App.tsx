@@ -160,7 +160,7 @@ class App extends React.Component<WordFrequencyAnalyzer | Props['classes'], Stat
   };
 
   handleCountAllNWords = (text: string, n: string) => {
-    if (text && !isNaN(Number(n))) {
+    if (text && n && !isNaN(Number(n))) {
       // Turn into array and sort on value (occurance)
       const sortedArray = Object.entries(this.calculateMostFrequentNWords(text, n)).sort(
         function (a: any, b: any) {
