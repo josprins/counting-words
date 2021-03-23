@@ -41,7 +41,6 @@ const styles = (_theme: any) =>
       padding: '10px',
     },
     resultText: {
-      marginTop: '10px',
       color: '#4a4a4a',
       textDecoration: 'underline wave 1px',
       fontFamily: "'Roboto Mono', monospace",
@@ -310,8 +309,17 @@ class App extends React.Component<WordFrequencyAnalyzer | Props['classes'], Stat
         </form>
         {output && (
           <>
-            <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-              <Typography className={classes.resultText}>Result:</Typography>
+            <div
+              style={{
+                display: 'flex',
+                justifyContent: 'space-between',
+                alignItems: 'baseline',
+              }}
+            >
+              <Typography className={classes.resultText}>
+                Result
+                <span style={{ fontSize: '23px', marginLeft: '4px' }}>&#8595;</span>
+              </Typography>
               <Button
                 className={classes.countBtn}
                 style={{ padding: '1px 8px', color: '#fff' }}
