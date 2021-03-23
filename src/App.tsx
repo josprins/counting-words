@@ -251,7 +251,7 @@ class App extends React.Component<WordFrequencyAnalyzer | Props['classes'], Stat
             }}
           />
           <Typography className={classes.totalWords}>
-            {text && `Total words: ${[...text.split(' ')].length}`}
+            {text && `Total words: ${[...text.trim().split(' ')].length}`}
           </Typography>
 
           <TextField
