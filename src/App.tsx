@@ -88,7 +88,8 @@ class App extends React.Component<WordFrequencyAnalyzer | Props['classes'], Stat
         which: any[] = [];
 
       array.forEach((i: string) => {
-        let item = i.toLowerCase();
+        let item = i.toLowerCase().replace(/[.,#!$"%^&*;:{}=\-_`~()]/g, '');
+        console.log(item);
         if (!obj[item]) {
           obj[item] = 1;
         } else {
@@ -121,7 +122,8 @@ class App extends React.Component<WordFrequencyAnalyzer | Props['classes'], Stat
     word
   ): any => {
     if (text && isNaN(Number(text)) && word && isNaN(Number(text))) {
-      const array = [...text.split(' ')];
+      const strippedText = text.toLowerCase().replace(/[.,#!$"%^&*;:{}=\-_`~()]/g, '');
+      const array = [...strippedText.split(' ')];
 
       // Filter out array elements that match the input word, put into new array and get array length
       const specificWordCount = array.filter(
