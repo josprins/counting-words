@@ -80,7 +80,7 @@ class App extends React.Component<WordFrequencyAnalyzer | Props['classes'], Stat
   calculateHighestFrequency: WordFrequencyAnalyzer['calculateHighestFrequency'] = (
     text: string
   ): any => {
-    if (text) {
+    if (text && isNaN(Number(text))) {
       const array: any = [...text.split(' ')];
 
       // Find most frequent array element(s) ({wich}) with their occurance ({mostFreq})
@@ -121,7 +121,7 @@ class App extends React.Component<WordFrequencyAnalyzer | Props['classes'], Stat
     text,
     word
   ): any => {
-    if (text && word) {
+    if (text && isNaN(Number(text)) && word && isNaN(Number(text))) {
       const array = [...text.split(' ')];
 
       // Filter out array elements that match the input word, put into new array and get array length
@@ -143,7 +143,7 @@ class App extends React.Component<WordFrequencyAnalyzer | Props['classes'], Stat
 
   calculateMostFrequentNWords: WordFrequencyAnalyzer['calculateMostFrequentNWords'] = text => {
     const array = [...text.split(' ')];
-    if (text) {
+    if (text && isNaN(Number(text))) {
       // Return object where key = string and value = occurance
       return array
         .map(word => word.toLowerCase().replace(/[.,#!$%^&*;":{}=\-_`~()]/g, ''))
@@ -160,7 +160,7 @@ class App extends React.Component<WordFrequencyAnalyzer | Props['classes'], Stat
   };
 
   handleCountAllNWords = (text: string, n: string) => {
-    if (text && n) {
+    if (text && !isNaN(Number(n))) {
       // Turn into array and sort on value (occurance)
       const sortedArray = Object.entries(this.calculateMostFrequentNWords(text, n)).sort(
         function (a: any, b: any) {
@@ -241,6 +241,7 @@ class App extends React.Component<WordFrequencyAnalyzer | Props['classes'], Stat
             label='Input Field'
             placeholder='Type any text in here..'
             multiline
+            value={text}
             margin='normal'
             InputLabelProps={{
               shrink: true,
@@ -259,6 +260,7 @@ class App extends React.Component<WordFrequencyAnalyzer | Props['classes'], Stat
             variant='outlined'
             label='Specific Word'
             placeholder='Type a single word here..'
+            value={word}
             className={classes.singleWordInput}
             size='small'
             onChange={e => this.setState({ word: e.target.value })}
@@ -271,6 +273,7 @@ class App extends React.Component<WordFrequencyAnalyzer | Props['classes'], Stat
             variant='outlined'
             label='List Length'
             placeholder='Type a number here..'
+            value={n}
             className={classes.singleWordInput}
             size='small'
             onChange={e => this.setState({ n: e.target.value })}
@@ -307,7 +310,27 @@ class App extends React.Component<WordFrequencyAnalyzer | Props['classes'], Stat
         </form>
         {output && (
           <>
-            <Typography className={classes.resultText}>Result:</Typography>
+            <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+              <Typography className={classes.resultText}>Result:</Typography>
+              <Button
+                className={classes.countBtn}
+                style={{ padding: '1px 8px', color: '#fff' }}
+                size='medium'
+                color='secondary'
+                variant='contained'
+                onClick={() =>
+                  this.setState({
+                    text: '',
+                    word: '',
+                    n: '',
+                    output: '',
+                    open: false,
+                  })
+                }
+              >
+                reset
+              </Button>
+            </div>
             <Paper className={classes.outputContainer}>
               {typeof output !== 'string' ? '{ ' : null}
               {typeof output !== 'string' ? (
