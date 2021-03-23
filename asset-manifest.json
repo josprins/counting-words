@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/counting-words/static/css/main.e3299cbe.chunk.css",
-    "main.js": "/counting-words/static/js/main.855e1a79.chunk.js",
-    "main.js.map": "/counting-words/static/js/main.855e1a79.chunk.js.map",
+    "main.js": "/counting-words/static/js/main.b3220ce0.chunk.js",
+    "main.js.map": "/counting-words/static/js/main.b3220ce0.chunk.js.map",
     "runtime-main.js": "/counting-words/static/js/runtime-main.53b6085a.js",
     "runtime-main.js.map": "/counting-words/static/js/runtime-main.53b6085a.js.map",
     "static/js/2.462e7aa4.chunk.js": "/counting-words/static/js/2.462e7aa4.chunk.js",
@@ -15,6 +15,6 @@
     "static/js/runtime-main.53b6085a.js",
     "static/js/2.462e7aa4.chunk.js",
     "static/css/main.e3299cbe.chunk.css",
-    "static/js/main.855e1a79.chunk.js"
+    "static/js/main.b3220ce0.chunk.js"
   ]
 }
