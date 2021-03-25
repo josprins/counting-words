@@ -89,7 +89,6 @@ class App extends React.Component<WordFrequencyAnalyzer | Props['classes'], Stat
 
       array.forEach((i: string) => {
         let item = i.toLowerCase().replace(/[.,#!$"%^&*;:{}=\-_`~()]/g, '');
-        console.log(item);
         if (!obj[item]) {
           obj[item] = 1;
         } else {
